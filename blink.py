@@ -5,11 +5,11 @@ import argparse
 GPIO.setwarnings(False)    # Ignore warning for now
 GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering
 
-parser = new argparse.ArgumentParser()
-parser.add_argument("--n")
-args = parse.parse_args()
+parser = argparse.ArgumentParser()
+parser.add_argument("--n", default=15)
+args = parser.parse_args()
 
-ITER_COUNT = args.n  
+ITER_COUNT = int(args.n)
 pin1 = 11
 
 GPIO.setup(pin1, GPIO.OUT, initial=GPIO.LOW)   
